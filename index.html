@@ -7,155 +7,560 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MiddagsKupp.no – Ukens beste middagstilbud</title>
   <meta name="description" content="MiddagsKupp hjelper deg å finne matretter med ingredienser på tilbud denne uken." />
-  <!-- PWA / Safari ikon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="MiddagsKupp">
   <meta name="theme-color" content="#4b39ef">
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,300;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #ffffff;
-      color: #14181b;
+    :root {
+      --primary: #4b39ef;
+      --primary-dark: #3929cf;
+      --primary-light: #ede9ff;
+      --text: #14181b;
+      --muted: #57636c;
+      --bg: #fafafa;
+      --white: #ffffff;
+      --border: #e8ecef;
     }
-    .hero {
-      background: #4b39ef;
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO HEADER ── */
+    .hero-header {
+      background: var(--primary);
       border-radius: 0 0 32px 32px;
       padding: 64px 24px 72px;
       text-align: center;
     }
+
     .hero-label {
       color: rgba(255,255,255,0.7);
       font-size: 13px;
       letter-spacing: 0.07em;
       text-transform: uppercase;
       margin-bottom: 12px;
-    }
-    .hero-title {
-      color: #ffffff;
-      font-size: 42px;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 600;
-      line-height: 1.1;
     }
-    .hero-title span {
+
+    .hero-header-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 8vw, 72px);
+      font-weight: 700;
+      color: white;
+      line-height: 1.05;
+    }
+
+    .hero-header-title span {
       color: rgba(255,255,255,0.55);
-      font-size: 32px;
+      font-size: clamp(28px, 6vw, 56px);
       font-weight: 400;
     }
-    .content {
-      max-width: 560px;
-      margin: 0 auto;
-      padding: 48px 24px 40px;
+
+    /* ── HERO CONTENT ── */
+    .hero-content {
+      padding: 64px 24px 48px;
       text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
     }
-    .content h2 {
-      font-size: 22px;
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 13px;
       font-weight: 600;
-      color: #14181b;
-      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
     }
-    .content p {
-      font-size: 16px;
-      color: #57636c;
+
+    .hero-eyebrow::before { content: '✦'; font-size: 10px; }
+
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(38px, 7vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    .hero-title em { font-style: italic; color: var(--primary); }
+
+    .hero-subtitle {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--muted);
       line-height: 1.7;
+      margin-bottom: 36px;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(75,57,239,0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(75,57,239,0.35);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* App logo */
+    .app-logo-wrap {
+      display: flex;
+      justify-content: center;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+
+    .app-logo-wrap img {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    /* ── FEATURES ── */
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 12px;
     }
-    .download {
-      max-width: 560px;
-      margin: 0 auto;
-      padding: 0 24px 64px;
-      text-align: center;
-    }
-    .download p {
-      font-size: 14px;
-      color: #57636c;
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text);
       margin-bottom: 16px;
     }
-    .buttons {
+
+    .section-title em { font-style: italic; color: var(--primary); }
+
+    .section-desc {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 56px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: all 0.2s;
+    }
+
+    .feature:hover {
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px rgba(75,57,239,0.08);
+    }
+
+    .feature-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .feature-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── HVORFOR ── */
+    .why-section {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .why-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .why-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .why-title em { font-style: italic; color: var(--primary); }
+
+    .why-text {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .why-text strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--primary);
+      padding: 96px 24px;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .cta-title em { font-style: italic; color: rgba(255,255,255,0.7); }
+
+    .cta-desc {
+      font-size: 17px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
       display: flex;
       gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
     }
-    .btn-store {
-      background: #14181b;
-      color: #ffffff;
-      border-radius: 12px;
-      padding: 14px 28px;
-      font-size: 15px;
-      font-weight: 500;
+
+    .btn-white {
+      background: white;
+      color: var(--primary);
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 600;
       text-decoration: none;
-      opacity: 0.45;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      opacity: 0.5;
       cursor: not-allowed;
-      display: inline-block;
+      pointer-events: none;
     }
+
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: all 0.2s;
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ── FOOTER ── */
     footer {
-      background: #f1f4f8;
-      border-radius: 16px 16px 0 0;
-      padding: 36px 24px;
+      background: var(--text);
+      padding: 48px 24px;
       text-align: center;
     }
-    footer p {
-      font-size: 14px;
-      color: #57636c;
-      margin-bottom: 6px;
+
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      display: block;
     }
-    footer a {
-      font-size: 15px;
-      color: #4b39ef;
-      font-weight: 500;
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+      cursor: pointer;
     }
-    footer a:hover {
-      text-decoration: underline;
+
+    .footer-links a:hover { color: white; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
     }
-    .copyright {
-      font-size: 12px;
-      color: #57636c;
-      margin-top: 20px;
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 32px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-title {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .modal-text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .modal-close {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 600px) {
+      .hero-buttons, .cta-buttons { flex-direction: column; align-items: center; }
     }
   </style>
-</>
+</head>
 <body>
 
-  <div class="hero">
+  <!-- HERO HEADER -->
+  <div class="hero-header">
     <p class="hero-label">Ukens beste middagstilbud</p>
-    <h1 class="hero-title">MiddagsKupp<span>.no</span></h1>
+    <h1 class="hero-header-title">MiddagsKupp<span>.no</span></h1>
   </div>
 
-  <div class="content">
-    <h2>Finn middager med ingredienser på tilbud</h2>
-    <p>MiddagsKupp viser deg hvilke middager du kan lage med ingredienser på tilbud denne uken – fra de største dagligvarebutikkene i Norge.</p>
-    <p>Kjenner du deg igjen? Hver uke skal kundeaviser sjekkes, tilbud veies opp mot hverandre — og til slutt skal noen svare på det evige spørsmålet: «Hva skal vi ha til middag?»</p>
-    <p>MiddagsKupp automatiserer hele prosessen. Gratis.</p>
-  </div>
-
-  <div class="download">
-    <p>Last ned appen – tilgjengelig snart:</p>
-    <div class="buttons">
-      <span class="btn-store">App Store</span>
-      <span class="btn-store">Google Play</span>
+  <!-- HERO CONTENT -->
+  <div class="hero-content">
+    <span class="hero-eyebrow">Gratis app for iOS og Android</span>
+    <h2 class="hero-title">
+      Hva skal vi ha<br>til <em>middag</em>?
+    </h2>
+    <p class="hero-subtitle">
+      MiddagsKupp finner middager med ingredienser på tilbud denne uken — fra de største dagligvarebutikkene i Norge.
+    </p>
+    <div class="hero-buttons">
+      <a href="#last-ned" class="btn-primary">Last ned gratis</a>
+      <a href="#slik-fungerer-det" class="btn-secondary">Slik fungerer det</a>
     </div>
-
-        <div style="margin-top: 32px; display: flex; justify-content: center;">
+    <div class="app-logo-wrap">
       <img
         src="https://pub-810627bc0b814d9294871850c0e34115.r2.dev/app_icon.jpg"
         alt="MiddagsKupp app-ikon"
-        style="width: 80px; height: 80px; border-radius: 18px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);"
       />
     </div>
   </div>
 
+  <!-- SLIK FUNGERER DET -->
+  <section class="section" id="slik-fungerer-det">
+    <p class="section-eyebrow reveal">Slik fungerer det</p>
+    <h2 class="section-title reveal">Alt du trenger for å <em>handel smartere</em></h2>
 
+    <div class="features-grid">
+      <div class="feature reveal">
+        <span class="feature-icon">🔥</span>
+        <div class="feature-title">Kupp-merking</div>
+        <div class="feature-desc">Middager med flere ingredienser på tilbud får Kupp🔥 — lett å se hva som gir mest verdi.</div>
+      </div>
+      <div class="feature reveal">
+        <span class="feature-icon">🛒</span>
+        <div class="feature-title">Smart handleliste</div>
+        <div class="feature-desc">Handlelisten sorteres automatisk per butikk, med tilbehør og notater samlet på ett sted.</div>
+      </div>
+      <div class="feature reveal">
+        <span class="feature-icon">❤️</span>
+        <div class="feature-title">Favoritter</div>
+        <div class="feature-desc">Lagre favorittretter og se hvilke som er på tilbud denne uken.</div>
+      </div>
+      <div class="feature reveal">
+        <span class="feature-icon">🔄</span>
+        <div class="feature-title">Bytt ingredienser</div>
+        <div class="feature-desc">Velg mellom alternativer innen samme kategori — den beste tilbudsvaren velges automatisk.</div>
+      </div>
+      <div class="feature reveal">
+        <span class="feature-icon">📅</span>
+        <div class="feature-title">Ukeplan</div>
+        <div class="feature-desc">Planlegg hele uken med en gang. Appen husker valgene dine fra uke til uke.</div>
+      </div>
+      <div class="feature reveal">
+        <span class="feature-icon">🔔</span>
+        <div class="feature-title">Ukentlig varsling</div>
+        <div class="feature-desc">Få beskjed hver mandag når nye tilbud er klare — aldri gå glipp av et godt kupp.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HVORFOR -->
+  <div class="why-section">
+    <div class="why-inner">
+      <h2 class="why-title reveal">Kjenner du deg <em>igjen?</em></h2>
+      <p class="why-text reveal">
+        Hver uke skal kundeaviser sjekkes, tilbud veies opp mot hverandre — og til slutt skal noen svare på det evige spørsmålet: «Hva skal vi ha til middag?»
+        <br><br>
+        <strong>MiddagsKupp automatiserer hele prosessen. Gratis.</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- CTA / LAST NED -->
+  <section class="cta-section" id="last-ned">
+    <h2 class="cta-title">Klar til å spare tid<br><em>og penger?</em></h2>
+    <p class="cta-desc">Last ned MiddagsKupp gratis — tilgjengelig snart på App Store og Google Play.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-white">App Store</a>
+      <a href="#" class="btn-outline-white">Google Play</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>Spørsmål eller tilbakemeldinger?</p>
-    <span class="footer-email">Se App Store og Google Play</span>
-    <p class="copyright">© 2026 MiddagsKupp</p>
+    <span class="footer-logo">MiddagsKupp</span>
+    <div class="footer-links">
+      <a onclick="document.getElementById('kontakt-modal').classList.add('open')">Kontakt</a>
+      <a onclick="document.getElementById('personvern-modal').classList.add('open')">Personvern</a>
+    </div>
+    <p class="footer-copy">© 2026 MiddagsKupp. Alle rettigheter reservert.</p>
   </footer>
+
+  <!-- KONTAKT MODAL -->
+  <div class="modal-overlay" id="kontakt-modal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <h3 class="modal-title">Kontakt</h3>
+      <p class="modal-text">Tilbakemeldinger og spørsmål kan sendes via App Store eller Google Play — vi setter stor pris på alle innspill!</p>
+      <button class="modal-close" onclick="document.getElementById('kontakt-modal').classList.remove('open')">Lukk</button>
+    </div>
+  </div>
+
+  <!-- PERSONVERN MODAL -->
+  <div class="modal-overlay" id="personvern-modal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <h3 class="modal-title">Personvern</h3>
+      <p class="modal-text">MiddagsKupp samler kun inn din e-postadresse for å opprette og identifisere din konto. Vi lagrer dine favorittoppskrifter og butikkvalg for å gi deg en personlig opplevelse. Vi deler ikke din informasjon med tredjeparter. Du kan når som helst slette din konto og all tilknyttet data direkte i appen. Data lagres sikkert via Supabase, som er GDPR-kompatibel.</p>
+      <button class="modal-close" onclick="document.getElementById('personvern-modal').classList.remove('open')">Lukk</button>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
