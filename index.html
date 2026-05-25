@@ -436,12 +436,11 @@
     /* ── MASKOT ── */
     .mascot-wrap {
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: flex-end;
-      gap: 0;
-      margin-bottom: -10px;
+      gap: 12px;
+      margin-top: 32px;
       animation: fadeUp 0.6s ease 0.25s both;
-      position: relative;
     }
     
     .mascot-svg {
@@ -482,53 +481,6 @@
     <p class="hero-subtitle">
       MiddagsKupp viser deg middager med ingredienser på tilbud denne uken — fra de største dagligvarebutikkene i Norge.
     </p>
-
-    <!-- MASKOT -->
-    <div class="mascot-wrap">
-      <svg class="mascot-svg" viewBox="0 0 70 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <style>
-            .m-line { stroke: #4b39ef; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-            .m-fill { fill: #F1F4F8; }
-            .m-dot  { fill: #4b39ef; }
-          </style>
-        </defs>
-        <!-- Hode -->
-        <rect class="m-fill m-line" x="14" y="2" width="42" height="28" rx="10"/>
-        <!-- Hår -->
-        <path class="m-line" d="M20 4 Q21 -0.5 25 3"/>
-        <path class="m-line" d="M31 2.5 Q35 -2 39 2.5"/>
-        <path class="m-line" d="M44 3 Q47 -0.5 50 4"/>
-        <!-- Øyne -->
-        <circle class="m-dot" cx="26" cy="12" r="2.8"/>
-        <circle class="m-dot" cx="44" cy="12" r="2.8"/>
-        <!-- Øyenbryn -->
-        <path class="m-line" stroke-width="1.8" d="M20 8.5 Q26 7 32 8.5"/>
-        <path class="m-line" stroke-width="1.8" d="M38 8.5 Q44 7 50 8.5"/>
-        <!-- Smil -->
-        <path class="m-line" d="M25 19 Q35 27 45 19"/>
-        <!-- Hals -->
-        <line class="m-line" x1="35" y1="30" x2="35" y2="36"/>
-        <!-- Kropp — kortere siden han sitter -->
-        <rect class="m-fill m-line" x="15" y="36" width="40" height="26" rx="12"/>
-        <!-- Knapper -->
-        <circle class="m-dot" cx="35" cy="44" r="2.2"/>
-        <circle class="m-dot" cx="35" cy="51" r="2.2"/>
-        <!-- Venstre arm — avslappet ut til siden -->
-        <path class="m-line" d="M15 42 Q2 46 4 54"/>
-        <circle class="m-fill m-line" cx="4.5" cy="56" r="4"/>
-        <!-- Høyre arm — avslappet ut til siden -->
-        <path class="m-line" d="M55 42 Q68 46 66 54"/>
-        <circle class="m-fill m-line" cx="65.5" cy="56" r="4"/>
-        <!-- Ben — hengende ned og litt buet ut -->
-        <path class="m-line" d="M25 62 Q22 74 18 84"/>
-        <path class="m-line" d="M45 62 Q48 74 52 84"/>
-        <!-- Sko — hengende -->
-        <rect class="m-fill m-line" x="10" y="82" width="13" height="6" rx="4"/>
-        <rect class="m-fill m-line" x="45" y="82" width="13" height="6" rx="4"/>
-      </svg>
-      <div class="mascot-bubble">Last ned og kom i gang — helt gratis! 👇</div>
-    </div>
     
     <div class="hero-buttons">
       <a href="#last-ned" class="btn-primary">Last ned gratis</a>
@@ -590,6 +542,52 @@
         <br>
         <strong>MiddagsKupp gjør jobben for deg. Helt gratis.</strong>
       </p>
+    </div>
+    <!-- MASKOT -->
+    <div class="mascot-wrap">
+      <svg class="mascot-svg" viewBox="0 0 70 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .m-line { stroke: #4b39ef; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+            .m-fill { fill: #F1F4F8; }
+            .m-dot  { fill: #4b39ef; }
+          </style>
+        </defs>
+        <!-- Hode -->
+        <rect class="m-fill m-line" x="14" y="2" width="42" height="28" rx="10"/>
+        <!-- Hår -->
+        <path class="m-line" d="M20 4 Q21 -0.5 25 3"/>
+        <path class="m-line" d="M31 2.5 Q35 -2 39 2.5"/>
+        <path class="m-line" d="M44 3 Q47 -0.5 50 4"/>
+        <!-- Øyne -->
+        <circle class="m-dot" cx="26" cy="12" r="2.8"/>
+        <circle class="m-dot" cx="44" cy="12" r="2.8"/>
+        <!-- Øyenbryn -->
+        <path class="m-line" stroke-width="1.8" d="M20 8.5 Q26 7 32 8.5"/>
+        <path class="m-line" stroke-width="1.8" d="M38 8.5 Q44 7 50 8.5"/>
+        <!-- Smil -->
+        <path class="m-line" d="M25 19 Q35 27 45 19"/>
+        <!-- Hals -->
+        <line class="m-line" x1="35" y1="30" x2="35" y2="36"/>
+        <!-- Kropp — kortere siden han sitter -->
+        <rect class="m-fill m-line" x="15" y="36" width="40" height="26" rx="12"/>
+        <!-- Knapper -->
+        <circle class="m-dot" cx="35" cy="44" r="2.2"/>
+        <circle class="m-dot" cx="35" cy="51" r="2.2"/>
+        <!-- Venstre arm — avslappet ut til siden -->
+        <path class="m-line" d="M15 42 Q2 46 4 54"/>
+        <circle class="m-fill m-line" cx="4.5" cy="56" r="4"/>
+        <!-- Høyre arm — avslappet ut til siden -->
+        <path class="m-line" d="M55 42 Q68 46 66 54"/>
+        <circle class="m-fill m-line" cx="65.5" cy="56" r="4"/>
+        <!-- Ben — hengende ned og litt buet ut -->
+        <path class="m-line" d="M25 62 Q22 74 18 84"/>
+        <path class="m-line" d="M45 62 Q48 74 52 84"/>
+        <!-- Sko — hengende -->
+        <rect class="m-fill m-line" x="10" y="82" width="13" height="6" rx="4"/>
+        <rect class="m-fill m-line" x="45" y="82" width="13" height="6" rx="4"/>
+      </svg>
+      <div class="mascot-bubble">Last ned og kom i gang! 👇</div>
     </div>
   </div>
 
