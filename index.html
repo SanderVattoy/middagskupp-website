@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,300;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
+  
   <style>
     :root {
       --primary: #4b39ef;
@@ -432,6 +432,36 @@
     @media (max-width: 600px) {
       .hero-buttons, .cta-buttons { flex-direction: row; }
     }
+    
+    /* ── MASKOT ── */
+    .mascot-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s ease 0.25s both;
+    }
+    
+    .mascot-svg {
+      width: 70px;
+      height: 100px;
+      flex-shrink: 0;
+    }
+    
+    .mascot-bubble {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 16px 16px 16px 4px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+      max-width: 180px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      margin-bottom: 12px;
+    }
   </style>
 </head>
 <body>
@@ -451,6 +481,55 @@
     <p class="hero-subtitle">
       MiddagsKupp finner middager med ingredienser på tilbud denne uken — fra de største dagligvarebutikkene i Norge.
     </p>
+
+    <!-- MASKOT -->
+    <div class="mascot-wrap">
+      <svg class="mascot-svg" viewBox="0 0 70 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .m-line { stroke: #4b39ef; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+            .m-fill { fill: #F1F4F8; }
+            .m-dot  { fill: #4b39ef; }
+          </style>
+        </defs>
+        <!-- Hode -->
+        <rect class="m-fill m-line" x="14" y="2" width="42" height="28" rx="10"/>
+        <!-- Hår -->
+        <path class="m-line" d="M20 4 Q21 -0.5 25 3"/>
+        <path class="m-line" d="M31 2.5 Q35 -2 39 2.5"/>
+        <path class="m-line" d="M44 3 Q47 -0.5 50 4"/>
+        <!-- Øyne -->
+        <circle class="m-dot" cx="26" cy="12" r="2.8"/>
+        <circle class="m-dot" cx="44" cy="12" r="2.8"/>
+        <!-- Øyenbryn -->
+        <path class="m-line" stroke-width="1.8" d="M20 8.5 Q26 7 32 8.5"/>
+        <path class="m-line" stroke-width="1.8" d="M38 8.5 Q44 7 50 8.5"/>
+        <!-- Smil -->
+        <path class="m-line" d="M25 19 Q35 27 45 19"/>
+        <!-- Hals -->
+        <line class="m-line" x1="35" y1="30" x2="35" y2="36"/>
+        <!-- Kropp -->
+        <rect class="m-fill m-line" x="15" y="36" width="40" height="30" rx="12"/>
+        <!-- Knapper -->
+        <circle class="m-dot" cx="35" cy="46" r="2.2"/>
+        <circle class="m-dot" cx="35" cy="53" r="2.2"/>
+        <circle class="m-dot" cx="35" cy="60" r="2.2"/>
+        <!-- Venstre arm — hengende ned -->
+        <path class="m-line" d="M15 44 Q3 50 5 60"/>
+        <circle class="m-fill m-line" cx="5.5" cy="62" r="4"/>
+        <!-- Høyre arm — peker mot høyre/ned mot knappen -->
+        <path class="m-line" d="M55 44 Q66 48 63 60"/>
+        <circle class="m-fill m-line" cx="62" cy="62" r="4"/>
+        <!-- Ben -->
+        <path class="m-line" d="M25 66 Q23 78 21 90"/>
+        <path class="m-line" d="M45 66 Q47 78 49 90"/>
+        <!-- Sko -->
+        <rect class="m-fill m-line" x="13" y="88" width="14" height="6" rx="4"/>
+        <rect class="m-fill m-line" x="42" y="88" width="14" height="6" rx="4"/>
+      </svg>
+      <div class="mascot-bubble">Last ned og kom i gang — helt gratis! 👇</div>
+    </div>
+    
     <div class="hero-buttons">
       <a href="#last-ned" class="btn-primary">Last ned gratis</a>
       <a href="#slik-fungerer-det" class="btn-secondary">Slik fungerer det</a>
@@ -477,27 +556,27 @@
       <div class="feature reveal">
         <span class="feature-icon">🛒</span>
         <div class="feature-title">Smart handleliste</div>
-        <div class="feature-desc">Handlelisten lagrer automatisk tilbud fra dine retter, samt viser dine tilbehør og notater.</div>
+        <div class="feature-desc">Handlelisten samler alt du trenger — tilbud, tilbehør og egne notater.</div>
       </div>
       <div class="feature reveal">
         <span class="feature-icon">❤️</span>
         <div class="feature-title">Favoritter</div>
-        <div class="feature-desc">Lagre favorittretter og se hvilke som er på tilbud denne uken.</div>
+        <div class="feature-desc">Samle dine favoritter og la appen holde øye med relaterte tilbud for deg.</div>
       </div>
       <div class="feature reveal">
         <span class="feature-icon">🔄</span>
         <div class="feature-title">Personlig oppsett</div>
-        <div class="feature-desc">Velg mellom alternative ingredienser, butikker og opp til 200 retter — de beste tilbudene velges automatisk.</div>
+        <div class="feature-desc">Velg mellom ingredienser, butikker og opp mot 200 retter — de beste tilbudene samles her.</div>
       </div>
       <div class="feature reveal">
         <span class="feature-icon">📅</span>
         <div class="feature-title">Ukeplan</div>
-        <div class="feature-desc">Planlegg hele uken med en gang. Appen husker valgene dine fra uke til uke.</div>
+        <div class="feature-desc">Planlegg hele uken på et blunk — spar både tid og penger.</div>
       </div>
       <div class="feature reveal">
         <span class="feature-icon">🔔</span>
         <div class="feature-title">Ukentlig varsling</div>
-        <div class="feature-desc">Få beskjed hver mandag når nye tilbud er klare — og aldri gå glipp av et MiddagsKupp.</div>
+        <div class="feature-desc">Få beskjed når nye tilbud er klare — og aldri igjen gå glipp av et MiddagsKupp!</div>
       </div>
     </div>
   </section>
@@ -508,8 +587,8 @@
       <h2 class="why-title reveal">Kjenner du deg <em>igjen?</em></h2>
       <p class="why-text reveal">
         Hver uke skal kundeaviser sjekkes, tilbud veies opp mot hverandre — og til slutt skal noen svare på det evige spørsmålet: «Hva skal vi ha til middag?»
-        <br><br>
-        <strong>MiddagsKupp automatiserer hele prosessen. Gratis.</strong>
+        <br>
+        <strong>MiddagsKupp gjør jobben for deg. Helt gratis.</strong>
       </p>
     </div>
   </div>
