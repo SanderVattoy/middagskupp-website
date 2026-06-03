@@ -532,11 +532,21 @@
   <footer>
     <span class="footer-logo">MiddagsKupp</span>
     <div class="footer-links">
+      <a onclick="document.getElementById('om-modal').classList.add('open')">Om MiddagsKupp</a>
       <a onclick="document.getElementById('kontakt-modal').classList.add('open')">Kontakt</a>
       <a onclick="document.getElementById('personvern-modal').classList.add('open')">Personvern</a>
     </div>
     <p class="footer-copy">© 2026 MiddagsKupp. Alle rettigheter reservert.</p>
   </footer>
+
+  <!-- OM MODAL -->
+  <div class="modal-overlay" id="om-modal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <h3 class="modal-title">Om MiddagsKupp</h3>
+      <p class="modal-text">MiddagsKupp har som mål å inspirere og gjøre hele prosessen med middagsplanlegging lettere. Tilbud hentes hver uke fra offentlige kundeaviser og kobles opp mot typiske middagsretter. Illustrasjonsbilder i appen er KI-genererte med mål om inspirasjon.</p>
+      <button class="modal-close" onclick="document.getElementById('om-modal').classList.remove('open')">Lukk</button>
+    </div>
+  </div>
 
   <!-- KONTAKT MODAL -->
   <div class="modal-overlay" id="kontakt-modal" onclick="if(event.target===this)this.classList.remove('open')">
